@@ -14,44 +14,35 @@ public class Loop
 		problems.prime_number(count);
 	}
 
-	private void prime_number() {
-		int count=0;
-		int div=2;
-		while (num>div)
-		{
-			if (num%div==0)
-				{
-				 System.out.println(div);
-				 count=count+1;
-				}
-			div=div+1;  
-		}
-		System.out.println(count);
+	private void prime_number(int count) 
+	{
+		
 		if (count==0)
 		{
-			System.out.println("prime number");
-		}	
-		
+			System.out.println("Prime number");
+		}
+		else
+		{
+			System.out.println("Not a prime");
+		}
 	}
+	
 
 	private int pro4(int num) 
-	{ 	int count=0;
+	{
+		int count = 0;
 		int div=2;
 		while (num>div)
 		{
 			if (num%div==0)
-				{
-				 System.out.println(div);
-				 count=count+1;
-				}
-			div=div+1;  
-		}
-		System.out.println(count);
-		if (count==0)
-		{
-			System.out.println("prime number");
-		}	return count
-		 
+			{
+				System.out.println(div);
+				count+=1;
+			}
+			div=div+1;
+		}System.out.println(count);
+		return count;
+		
 	}
 
 	private void pro3() 
