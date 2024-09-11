@@ -1,0 +1,68 @@
+body, html {
+    
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light grey background */
+}
+
+.container {
+    width: 100%;
+    max-width: 200px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+    border-width: 50px;
+    background-color: #fff;
+    margin: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form input,
+.form textarea,
+.form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fafafa; /* Slightly off-white background */
+}
+
+.form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    height: 100px;
+}
+
+.form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form button:hover {
+    background-color: #45a049;
+}

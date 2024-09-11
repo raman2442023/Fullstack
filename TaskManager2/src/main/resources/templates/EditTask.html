@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a ToDo Item</title>
+    <link rel="stylesheet" href="CSS/style1.css">
+   
+</head>
+<body>
+    <div class="container">
+        <form class="form" th:action="@{/saveTask}" method="post" th:object="${task}">
+            <h1>Add Tasks</h1>
+			
+			<input type="hidden" name="id" th:value="${task.id}"/>
+			
+            <label for="title"> Task </label>
+            <input type="text" id="Task" name="Task"  th:value="${task.Task}">
+            
+            <label for="assign">Assign_To_Person</label>
+            <input type="text" id="assign_To_Person" name="assign_To_Person" th:value="${task.assign}">
+            
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date" placeholder="dd / mm / yyyy" value="${task.date}">
+            
+            <label for="description">Description</label>
+            <textarea id="description" name="description" aria-value="${task.description}"></textarea>
+            
+           
+            
+            
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

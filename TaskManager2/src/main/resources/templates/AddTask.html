@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="CSS/style1.css">
+   
+</head>
+<body>
+    <div class="container">
+        <form class="form" th:action="@{/saveTask}" method="post">
+            <h1>Add Tasks</h1>
+            <label for="task">Task</label>
+            <input type="text" id="Task" name="Task">
+            
+            <label for="Assign_To_Person">Assign_To_Person</label>
+            <input type="text" id="Assign_To_Preson" name="Assign_To_Person">
+            
+            <label for="date">Date</label>
+            <input type="text" id="date" name="Date" placeholder="dd / mm / yyyy">
+            
+            <label for="description">Description</label>
+            <textarea id="description" name="Description"></textarea>
+            
+            
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

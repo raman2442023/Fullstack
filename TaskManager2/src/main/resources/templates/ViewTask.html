@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>View Task List</title>
+
+    <link rel="stylesheet"
+        	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script
+        	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+        	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <style>
+        a{
+            color: white;
+        }
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="p-3"> ToDo Item List</h1>
+
+            <table class="table table-bordered">
+			  <thead>		
+            	<tr>
+            		<th scope="col">Id</th>
+            		<th scope="col">Task</th>
+            		<th scope="col">Assign_To_Person</th>
+					<th scope="col">Date</th>
+            		<th scope="col">Description</th>
+            		<th scope="col">Edit</th>
+            		<th scope="col">Delete</th>
+            	</tr>
+				</thead>
+				<tbody></tbody>
+
+						<tr th:each="task :${taskDetails}">
+						<td th:text="${task.Id}"></td>
+                		<td th:text="${task.Task}"></td>
+                		<td th:text="${task.Assign_To_Person}"></td>
+						<td th:text="${task.Date}"></td>
+						<td th:text="${task.Description}"></td>
+                		
+                		<td><button type="button" class="btn btn-primary">
+                		    <a th:href="@{/editTask/{Id}(Id=${task.Id})}">Edit</a>
+                		</button></td>
+                		<td><button type="button" class="btn btn-danger">
+                			<a th:href="@{/deleteTask/{Id}(Id=${task.Id})}">Delete</a>
+                		</button></td>
+                	</tr>
+
+
+            </table>
+
+        <button type="button" class="btn btn-primary btn-block">
+        	<a href="/addTask">Add New Task</a>
+        </button>
+
+    </div>
+
+    <script th:inline="javascript">
+                window.onload = function() {
+
+                    var msg = "${message}";
+                    
+                    if (msg == "Save Success") {
+        				Command: toastr["success"]("Item added successfully!!")
+        			} else if (msg == "Delete Success") {
+        				Command: toastr["success"]("Item deleted successfully!!")
+        			} else if (msg == "Delete Failure") {
+        			    Command: toastr["error"]("Some error occurred, couldn't delete item")
+        			} else if (msg == "Edit Success") {
+        				Command: toastr["success"]("Item updated successfully!!")
+        			}
+
+        			toastr.options = {
+                          "closeButton": true,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": true,
+                          "positionClass": "toast-top-right",
+                          "preventDuplicates": false,
+                          "showDuration": "300",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                        }
+        	    }
+            </script>
+
+</body>
+
+</html>
